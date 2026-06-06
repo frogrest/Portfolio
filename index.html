@@ -551,7 +551,7 @@
 
     <script>
       // =========================================================================
-      // WATER RIPPLE & DROPLET SIMULATION (BACKGROUND TRAIL)
+      // WATER RIPPLE (BACKGROUND TRAIL)
       // =========================================================================
       const canvas = document.getElementById("trail-canvas");
       const ctx = canvas.getContext("2d");
@@ -573,7 +573,7 @@
         constructor(x, y) {
           this.x = x;
           this.y = y;
-          this.radius = 1;
+          this.radius = 2;
           this.maxRadius = Math.random() * 25 + 20; // Soft varying size limit
           this.alpha = 0.22; // Low starting opacity to be non-intrusive
           this.decay = 0.004 + Math.random() * 0.003; // Gentle slow dissolution
@@ -581,7 +581,7 @@
 
         update() {
           // Accelerate growth toward max bounds
-          this.radius += (this.maxRadius - this.radius) * 0.06;
+          this.radius += (this.maxRadius - this.radius) * 0.1;
           this.alpha -= this.decay;
         }
 
@@ -603,43 +603,6 @@
         }
       }
 
-      // Droplet Class representing tiny descending beads of water
-      class Droplet {
-        constructor(x, y) {
-          this.x = x;
-          this.y = y;
-          this.vx = (Math.random() - 0.5) * 0.6; // Small lateral velocity
-          this.vy = Math.random() * 0.8 + 0.3; // Gentle descending movement
-          this.gravity = 0.04; // Soft gravitational pull
-          this.size = Math.random() * 1.5 + 1.0; // Microscopic water beads
-          this.alpha = 0.35;
-          this.decay = 0.007 + Math.random() * 0.005;
-        }
-
-        update() {
-          this.vy += this.gravity;
-          this.x += this.vx;
-          this.y += this.vy;
-          this.alpha -= this.decay;
-        }
-
-        draw() {
-          if (
-            !isFinite(this.x) ||
-            !isFinite(this.y) ||
-            !isFinite(this.size) ||
-            this.alpha <= 0
-          )
-            return;
-          ctx.save();
-          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
-        }
-      }
-
       // Track cursor position and instantiate ripples at subtle intervals
       window.addEventListener("mousemove", (e) => {
         mouse.x = e.clientX;
@@ -647,7 +610,7 @@
 
         const now = Date.now();
         // Slow interval to avoid visual clutter
-        if (now - lastRippleTime > 140) {
+        if (now - lastRippleTime > 100) {
           particles.push(new Ripple(mouse.x, mouse.y));
           lastRippleTime = now;
         }

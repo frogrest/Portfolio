@@ -14,7 +14,7 @@ function switchTab(tabId) {
           });
         });
       } else {
-        panel.removeEventListener;
+        // nothing to remove here; keep hide behavior
         panel.classList.remove("fade-in", "show");
       }
     }
