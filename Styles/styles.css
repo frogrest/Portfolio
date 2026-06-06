@@ -20,7 +20,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0; /* Places the effect safely behind your content container (z-10) */
+  z-index: 0;
 }
 
 /* Ambient glows */
@@ -52,7 +52,7 @@
 .tab-content {
   display: none;
   opacity: 0;
-  transform: translateY(24px); /* Shifted down */
+  transform: translateY(24px);
   transition:
     opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -66,5 +66,27 @@
 /* Step 2: Animate opacity and lift the element up */
 .tab-content.fade-in {
   opacity: 1;
-  transform: translateY(0); /* Pull back to normal position */
+  transform: translateY(0);
+}
+
+/* Profile halo light properties (simplified) */
+#profile-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.18) 0%,
+    rgba(255, 255, 255, 0.06) 40%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(1.25);
+  filter: blur(18px);
+  opacity: 0.6;
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease,
+    filter 300ms ease;
 }

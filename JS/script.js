@@ -7,23 +7,18 @@ function switchTab(tabId) {
 
     if (panel) {
       if (t === tabId) {
-        // 1. Instantly display the element (display: block)
         panel.classList.add("show");
-
-        // 2. Allow the browser to register the display change,
-        //    then trigger the fade-in and lift transition
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             panel.classList.add("fade-in");
           });
         });
       } else {
-        // Instantly hide the inactive panels
+        panel.removeEventListener;
         panel.classList.remove("fade-in", "show");
       }
     }
 
-    // Toggle button active states on the floating dock
     if (btn) {
       if (t === tabId) {
         btn.className =
@@ -36,7 +31,6 @@ function switchTab(tabId) {
   });
 }
 
-// Project toggle logic
 function switchProject(projKey) {
   const views = document.querySelectorAll(".project-view");
   views.forEach((v) => v.classList.add("hidden"));
@@ -44,7 +38,6 @@ function switchProject(projKey) {
   const targetView = document.getElementById(`project-${projKey}`);
   if (targetView) targetView.classList.remove("hidden");
 
-  // Button Toggle Styles
   const btnPrepa = document.getElementById("proj-btn-prepa");
   const btnBot = document.getElementById("proj-btn-bot");
 
@@ -61,7 +54,6 @@ function switchProject(projKey) {
   }
 }
 
-// Audio autoplay & toggle system
 window.addEventListener("DOMContentLoaded", () => {
   const audio = document.getElementById("bg-music");
   const toggleBtn = document.getElementById("audio-toggle");
@@ -82,27 +74,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
   toggleBtn.addEventListener("click", () => {
     if (audio.paused) {
-      audio.play();
-      updateUI(true);
+      audio
+        .play()
+        .then(() => updateUI(true))
+        .catch(() => updateUI(false));
     } else {
       audio.pause();
       updateUI(false);
     }
   });
 
-  // Autoplay attempts upon standard user interaction
   document.body.addEventListener(
     "click",
     () => {
       audio
         .play()
-        .then(() => {
-          updateUI(true);
-        })
-        .catch(() => {
-          updateUI(false);
-        });
+        .then(() => updateUI(true))
+        .catch(() => updateUI(false));
     },
     { once: true },
   );
+  // Beat detection removed — profile glow remains decorative only.
 });
