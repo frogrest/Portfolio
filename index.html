@@ -3,665 +3,537 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gian Carlo Noriega | Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Gian Carlo Noriega | Creative Developer & Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Premium Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;460;500;540;600;700;800&display=swap"
       rel="stylesheet"
     />
-
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"Plus Jakarta Sans"', "sans-serif"],
+              sans: ['"Inter"', "ui-sans-serif", "system-ui", "sans-serif"],
             },
-            animation: {
-              "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-              float: "float 6s ease-in-out infinite",
-            },
-            keyframes: {
-              float: {
-                "0%, 100%": { transform: "translateY(0px)" },
-                "50%": { transform: "translateY(-10px)" },
-              },
+            colors: {
+              "parchment-canvas": "#f2f0eb",
+              ink: "#292827",
+              bone: "#ffffff",
+              fog: "#e3e3e2",
+              driftwood: "#dcd7d3",
+              graphite: "#666666",
+              aubergine: "#421d24",
+              "aubergine-deep": "#4e242c",
+              iris: "#714cb6",
+              "indigo-glow": "#353088",
+              "lavender-chip": "#d4c7ff",
             },
           },
         },
       };
     </script>
-
     <link rel="stylesheet" href="Styles/styles.css" />
   </head>
-  <body
-    class="bg-black text-white font-sans min-h-screen relative overflow-x-hidden selection:bg-white selection:text-black"
-  >
-    <!-- Interactive Canvas Layer for water droplet and ripple trail -->
-    <canvas
-      id="trail-canvas"
-      class="fixed inset-0 pointer-events-none z-0"
-    ></canvas>
-
-    <!-- Ambient Backlit Glows -->
-    <div
-      class="absolute top-0 right-0 w-[600px] h-[600px] ambient-glow-1 rounded-full blur-3xl pointer-events-none animate-pulse-slow"
-    ></div>
-    <div
-      class="absolute bottom-10 left-[-100px] w-[500px] h-[500px] ambient-glow-2 rounded-full blur-3xl pointer-events-none"
-    ></div>
-
-    <!-- Main Container -->
-    <main
-      class="max-w-4xl mx-auto px-6 pt-12 pb-32 min-h-screen flex flex-col justify-center relative z-10"
-    >
-      <!-- ================= HOME CARD ================= -->
-      <div id="panel-home" class="tab-content show fade-in">
-        <div
-          class="glass-panel rounded-[32px] p-8 md:p-12 relative overflow-hidden"
+  <body>
+    <!-- ============================================================
+         ANNOUNCEMENT BANNER
+         ============================================================ -->
+    <div class="announcement-banner">
+      <p>
+        Welcome — explore my portfolio & creative journey.
+        <a href="https://linkedin.com/in/gian-carlo-noriega-02b70139b/"
+          >Let's connect →</a
         >
-          <!-- Header / Status Badge -->
-          <div class="flex items-center justify-between mb-12">
-            <div
-              class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full"
-            >
-              <span class="w-2 h-2 rounded-full bg-white animate-ping"></span>
-              <span class="w-2 h-2 rounded-full bg-white absolute"></span>
-              <span
-                class="text-[11px] font-semibold tracking-wider uppercase text-zinc-300"
-                >Open to Work</span
-              >
+      </p>
+    </div>
+
+    <!-- ============================================================
+         PRIMARY NAVIGATION
+         ============================================================ -->
+    <nav
+      class="site-nav nav-banner-visible"
+      id="site-nav"
+      aria-label="Primary navigation"
+    >
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">GCN<span>.</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#skills">Arsenal</a>
+          <a href="#works">Works</a>
+          <a href="mailto:giannoriega4everything@gmail.com" class="nav-cta"
+            >Get in Touch</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section class="hero" id="hero">
+      <img
+        src="Images/Cover.jpg"
+        alt="Cinematic dusk background"
+        class="hero-bg"
+        loading="eager"
+      />
+
+      <div class="hero-gradient-overlay"></div>
+
+      <!-- Spotlights (design.md gradient system) -->
+      <div class="hero-spotlight-violet"></div>
+      <div class="hero-spotlight-pink"></div>
+      <div class="hero-spotlight-blue"></div>
+      <div class="hero-spotlight-cyan"></div>
+
+      <!-- Floating glassmorphic panels (generated by JS) -->
+      <div id="hero-panels-container"></div>
+
+      <div class="hero-content">
+        <div class="hero-label">Developer & Video Editor</div>
+        <h1 class="hero-title">
+          Crafting <span class="accent">Digital</span><br />
+          <span style="color: var(--color-iris)">Experiences</span>.
+        </h1>
+        <p class="hero-sub">
+          Bridging the gap between high-end cinematography and scalable software
+          engineering. I build immersive systems with a storyteller's eye.
+        </p>
+        <a href="#works" class="hero-cta">
+          Explore My Work
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="scroll-indicator">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         TRUST / STACK STRIP
+         ============================================================ -->
+    <div class="trust-strip">
+      <div class="page-container">
+        <span class="trust-label">Stack</span>
+        <span class="trust-item">JavaScript</span>
+        <span class="trust-item">Python</span>
+        <span class="trust-item">C# / .NET</span>
+        <span class="trust-item">Java</span>
+        <span class="trust-item">Unreal Engine</span>
+        <span class="trust-item">After Effects</span>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         MAIN CONTENT
+         ============================================================ -->
+    <main id="portfolio-content">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="section-spacing reveal">
+        <div class="page-container">
+          <div class="section-header">
+            <div class="section-label">
+              <span class="num">01</span>
+              <span>The Story</span>
             </div>
-            <!-- Audio Control Block -->
+            <h2 class="section-title">
+              Technical precision meets creative chaos.
+            </h2>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-text">
+              <p>
+                I am a Computer Science student who refuses to choose between
+                logic and art. My work lives at the intersection of
+                <strong>performance code</strong> and
+                <strong>visual storytelling</strong>.
+              </p>
+              <p>
+                Whether it's architecting a chatbot in JavaScript or grading a
+                cinematic sequence in After Effects, my goal is always the same:
+                <strong>Create a feeling.</strong>
+              </p>
+            </div>
+            <div class="about-image-card">
+              <img
+                src="Images/Me.png"
+                alt="Gian Carlo Noriega"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS & JOURNEY SECTION -->
+      <section id="skills" class="section-spacing skills-section reveal">
+        <div class="page-container">
+          <div class="section-header">
+            <div class="section-label">
+              <span class="num">02</span>
+              <span>The Arsenal</span>
+            </div>
+            <h2 class="section-title">Technical Toolset</h2>
+          </div>
+
+          <div class="skills-grid">
+            <!-- Engineering -->
+            <div class="skill-category">
+              <h3>Engineering</h3>
+              <div class="skill-tags">
+                <span>JavaScript</span>
+                <span>Python</span>
+                <span>C#</span>
+                <span>Java</span>
+                <span>.NET</span>
+                <span>HTML/CSS</span>
+              </div>
+            </div>
+            <!-- Creative -->
+            <div class="skill-category">
+              <h3>Creative</h3>
+              <div class="skill-tags">
+                <span>Unreal Engine</span>
+                <span>After Effects</span>
+                <span>Sony Vegas</span>
+                <span>Capcut</span>
+                <span>Canva</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Journey Timeline -->
+          <div class="journey-section">
+            <h3>Journey</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-year">2022-2026</div>
+                <div class="timeline-desc">
+                  <strong>Computer Science</strong> — Building foundational
+                  expertise in algorithms, data structures, and full-stack
+                  development.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2022-2026</div>
+                <div class="timeline-desc">
+                  <strong>Video Editing & VFX</strong> — Producing cinematic
+                  content using After Effects, Unreal Engine, and Sony Vegas for
+                  various projects.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2025-2026</div>
+                <div class="timeline-desc">
+                  <strong>DevCon PH</strong> — Active member of the Philippine
+                  developer community, contributing to open-source and
+                  collaborative projects.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKS / PROJECTS SECTION -->
+      <section id="works" class="section-spacing reveal">
+        <div class="page-container">
+          <div class="section-header">
+            <div class="section-label">
+              <span class="num">03</span>
+              <span>Selected Works</span>
+            </div>
+            <h2 class="section-title">Case Studies</h2>
+          </div>
+
+          <!-- Tab Switcher -->
+          <div class="works-tabs" role="tablist">
             <button
-              id="audio-toggle"
-              class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full hover:bg-white/10 transition-all text-[11px] font-semibold tracking-wider uppercase text-zinc-300"
+              class="works-tab active"
+              data-tab="prepaview"
+              role="tab"
+              aria-selected="true"
             >
-              <span
-                id="audio-status-dot"
-                class="w-1.5 h-1.5 rounded-full bg-zinc-500"
-              ></span>
-              <span id="audio-text">Music Off</span>
+              Prepaview
+            </button>
+            <button
+              class="works-tab"
+              data-tab="chatbot"
+              role="tab"
+              aria-selected="false"
+            >
+              Restaurant Bot
             </button>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <!-- Left Content -->
-            <div class="md:col-span-7 space-y-6">
-              <div>
-                <span
-                  class="text-zinc-400 font-semibold text-xs tracking-[0.2em] uppercase bg-gradient-to-r from-zinc-400 to-white bg-clip-text text-transparent"
-                  >Developer & Video Editor</span
-                >
-                <h1
-                  class="text-4xl md:text-5xl font-extrabold tracking-tight mt-2 text-white"
-                >
-                  GIAN CARLO<br />NORIEGA
-                </h1>
-              </div>
-              <p class="text-zinc-400 text-sm md:text-base leading-relaxed">
-                I blend technical coding skills with
-                <strong class="text-white font-medium"
-                  >cinematography and storytelling</strong
-                >
-                to create immersive digital experiences. Motivated computer
-                science student with a passion for building software and
-                crafting visuals.
+          <!-- Prepaview Panel -->
+          <div class="works-panel active" id="panel-prepaview" role="tabpanel">
+            <div class="work-content">
+              <div class="work-tags">Unreal Engine • Blueprints</div>
+              <h3>Prepaview</h3>
+              <p>
+                High-fidelity gameplay prototype focusing on responsive player
+                logic and AI behavior systems. Built entirely in Unreal Engine
+                with custom Blueprints and C++ integrations.
               </p>
-
-              <!-- Contact Grid -->
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-white/5 text-[10px] text-zinc-400"
+              <a
+                href="https://youtu.be/v27Fh6bPfZI"
+                target="_blank"
+                class="work-link"
               >
+                Watch Reel
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="14"
+                  height="14"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a
+                href="https://drive.google.com/file/d/15JC_hv6VdPnKQiXS-oWbzMapf3-pZMvu/view"
+                target="_blank"
+                class="work-link"
+                style="margin-left: 1.5rem"
+              >
+                Play Demo
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="14"
+                  height="14"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div class="work-preview">
+              <img
+                src="Images/Prepaview.jpg"
+                alt="Prepaview project preview"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Chatbot Panel -->
+          <div class="works-panel" id="panel-chatbot" role="tabpanel">
+            <div class="work-content">
+              <div class="work-tags">Vanilla JS • CSS3 • UX</div>
+              <h3>Restaurant Bot</h3>
+              <p>
+                A state-driven conversational interface designed for seamless
+                food ordering and UX flow. Built with vanilla JavaScript
+                featuring intelligent conversation states and responsive design.
+              </p>
+              <a
+                href="restaurant_chatbot.html"
+                target="_blank"
+                class="work-link"
+              >
+                View Prototype
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="14"
+                  height="14"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+            <div class="work-preview">
+              <img
+                src="Images/RestaurantChatbot.png"
+                alt="Restaurant Chatbot preview"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="section-spacing reveal">
+        <div class="page-container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div
+                class="section-label"
+                style="margin-bottom: var(--spacing-16)"
+              >
+                <span class="num">04</span>
+                <span>Connect</span>
+              </div>
+              <h3>Let's create something remarkable.</h3>
+              <p>
+                Whether you have a project in mind, a collaboration idea, or
+                just want to say hello — I'm always open to meaningful
+                conversations.
+              </p>
+              <div class="contact-links">
                 <a
                   href="mailto:giannoriega4everything@gmail.com"
-                  class="flex items-center gap-3 hover:text-white transition-all"
+                  class="contact-link"
                 >
                   <svg
-                    class="w-4 h-4 text-zinc-500"
+                    viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    width="18"
+                    height="18"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
                     />
+                    <polyline points="22,6 12,13 2,6" />
                   </svg>
-                  <span>giannoriega4everything@gmail.com</span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/gian-carlo-noriega-02b70139b/"
-                  target="_blank"
-                  class="flex items-center gap-3 hover:text-white transition-all"
-                >
-                  <svg
-                    class="w-4 h-4 text-zinc-500"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
-                    />
-                  </svg>
-                  LinkedIn
+                  giannoriega4everything@gmail.com
                 </a>
                 <a
                   href="https://github.com/frogrest"
                   target="_blank"
-                  class="flex items-center gap-3 hover:text-white transition-all"
+                  class="contact-link"
                 >
                   <svg
-                    class="w-4 h-4 text-zinc-500"
-                    fill="currentColor"
                     viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width="18"
+                    height="18"
                   >
                     <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482C19.138 20.193 22 16.435 22 12.017 22 6.484 17.522 2 12 2z"
+                      d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
                     />
                   </svg>
                   GitHub
                 </a>
-                <span class="flex items-center gap-3 cursor-default">
+                <a
+                  href="https://linkedin.com/in/gian-carlo-noriega-02b70139b/"
+                  target="_blank"
+                  class="contact-link"
+                >
                   <svg
-                    class="w-4 h-4 text-zinc-500"
-                    fill="none"
-                    stroke="currentColor"
                     viewBox="0 0 24 24"
+                    fill="currentColor"
+                    width="18"
+                    height="18"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                     />
                   </svg>
-                  San Juan, PH
-                </span>
-              </div>
-
-              <!-- CTA button -->
-              <div class="pt-2">
-                <a
-                  href="mailto:giannoriega4everything@gmail.com?subject=Request for Resume"
-                  target="_blank"
-                  class="inline-block bg-white text-black font-semibold text-xs tracking-wider uppercase px-8 py-4 rounded-full hover:bg-zinc-200 hover:scale-[1.02] transition-all duration-300"
-                >
-                  Request Resume
+                  LinkedIn
                 </a>
               </div>
             </div>
-
-            <!-- Right Abstract Visual Placeholder -->
-            <div class="md:col-span-5 flex justify-center">
-              <div
-                class="relative w-80 h-80 flex items-center justify-center animate-float"
-              >
-                <!-- Background glow halo (ADDED id="profile-glow" HERE) -->
-                <div
-                  id="profile-glow"
-                  class="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent rounded-full filter blur-md"
-                ></div>
-
-                <!-- Core geometric representation of Code + Cinema -->
-                <div
-                  class="w-72 h-72 rounded-full border border-white/20 bg-black/60 flex items-center justify-center backdrop-blur-md relative z-10"
-                >
-                  <img
-                    src="Images/Base.jpg"
-                    alt="Gian Carlo Noriega"
-                    class="w-64 h-64 rounded-full object-cover"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ================= SKILLS & JOURNEY CARD ================= -->
-      <div id="panel-skills" class="tab-content">
-        <div class="glass-panel rounded-[32px] p-8 md:p-12">
-          <div class="flex items-center justify-between mb-8">
-            <h2 class="text-2xl font-bold tracking-tight text-white">
-              Skills & Journey
-            </h2>
-            <a
-              href="mailto:giannoriega4everything@gmail.com?subject=Request for Resume"
-              target="_blank"
-              class="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[11px] font-semibold tracking-wider uppercase text-zinc-300 hover:bg-white/10 transition-all"
-            >
-              Request Resume
-            </a>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <!-- Left: Toolbox & Progress -->
-            <div class="space-y-8">
-              <div>
-                <h3
-                  class="text-xs font-semibold text-zinc-400 tracking-wider uppercase mb-4"
-                >
-                  Technical & Creative Toolbox
-                </h3>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >HTML & CSS</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >JavaScript</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Python</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >C#</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Java</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Unreal Engine</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Sony Vegas</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Capcut</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >After Effects</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >.NET Framework</span
-                  >
-                  <span
-                    class="bg-white/5 border border-white/5 hover:border-white/20 px-3.5 py-1.5 rounded-full text-xs text-zinc-300 transition-all"
-                    >Canva</span
-                  >
-                </div>
-              </div>
-
-              <!-- Focus Strengths -->
-              <div class="space-y-4">
-                <h3
-                  class="text-xs font-semibold text-zinc-400 tracking-wider uppercase"
-                >
-                  Focus Areas
-                </h3>
-                <div class="space-y-3">
-                  <div>
-                    <div
-                      class="flex justify-between text-xs mb-1 text-zinc-400"
-                    >
-                      <span>Creative Media & Editing</span>
-                      <span>80%</span>
-                    </div>
-                    <div
-                      class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="bg-white h-full rounded-full"
-                        style="width: 80%"
-                      ></div>
-                    </div>
-                  </div>
-                  <div>
-                    <div
-                      class="flex justify-between text-xs mb-1 text-zinc-400"
-                    >
-                      <span>Software & Game Dev</span>
-                      <span>80%</span>
-                    </div>
-                    <div
-                      class="w-full bg-white/5 h-1.5 rounded-full overflow-hidden"
-                    >
-                      <div
-                        class="bg-zinc-400 h-full rounded-full"
-                        style="width: 80%"
-                      ></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Timeline / Education -->
-            <div class="space-y-6">
-              <h3
-                class="text-xs font-semibold text-zinc-400 tracking-wider uppercase"
-              >
-                Education & Affiliation
-              </h3>
-              <div class="relative border-l border-white/10 pl-5 space-y-8">
-                <!-- Education Item -->
-                <div class="relative">
-                  <span
-                    class="absolute left-[-24px] top-1.5 w-2 h-2 rounded-full bg-white ring-4 ring-black"
-                  ></span>
-                  <h4 class="text-sm font-bold text-white">
-                    BS in Computer Science
-                  </h4>
-                  <span class="text-[11px] text-zinc-400 font-medium block mb-2"
-                    >STI College | 2022 – 2026</span
-                  >
-                  <p class="text-xs text-zinc-400">
-                    Focus on software development, creative media, and technical
-                    fundamentals.
-                  </p>
-                </div>
-                <!-- Community Item -->
-                <div class="relative">
-                  <span
-                    class="absolute left-[-24px] top-1.5 w-2 h-2 rounded-full bg-zinc-500 ring-4 ring-black"
-                  ></span>
-                  <h4 class="text-sm font-bold text-white">
-                    Member / Participant
-                  </h4>
-                  <span class="text-[11px] text-zinc-400 font-medium block mb-2"
-                    >DevCon PH</span
-                  >
-                  <p class="text-xs text-zinc-400">
-                    Engaging with the software development community and
-                    exploring real-world tech practices.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ================= PROJECTS CARD ================= -->
-      <div id="panel-projects" class="tab-content">
-        <div class="glass-panel rounded-[32px] p-8 md:p-12">
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h2 class="text-2xl font-bold tracking-tight text-white">
-                Selected Works
-              </h2>
-              <span class="text-xs text-zinc-400"
-                >Creative media production & interactive systems</span
-              >
-            </div>
-            <!-- Tab toggle buttons for projects -->
-            <div
-              class="flex gap-2 bg-white/5 p-1 rounded-full border border-white/5"
-            >
-              <button
-                id="proj-btn-prepa"
-                onclick="switchProject('prepa')"
-                class="px-4 py-1.5 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all bg-white text-black"
-              >
-                Prepaview
-              </button>
-              <button
-                id="proj-btn-bot"
-                onclick="switchProject('bot')"
-                class="px-4 py-1.5 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all text-zinc-400 hover:text-white"
-              >
-                Chatbot
-              </button>
-            </div>
-          </div>
-
-          <!-- PROJECT 1: PREPAVIEW -->
-          <div id="project-prepa" class="project-view space-y-6">
-            <div
-              class="w-full h-48 md:h-64 bg-zinc-950/80 rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative group"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"
-              ></div>
-              <div class="z-20 text-center space-y-3">
-                <span
-                  class="text-[10px] font-bold tracking-[0.2em] uppercase bg-white/10 px-3 py-1 rounded-full text-zinc-300"
-                  >Unreal Engine • Blueprints</span
-                >
-                <h3 class="text-lg font-bold text-white">
-                  Interactive Gameplay Prototype
-                </h3>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white">Prepaview</h3>
-              <p class="text-zinc-400 text-xs md:text-sm mt-2 leading-relaxed">
-                A prototype game mechanic utilizing Unreal Engine Blueprints.
-                Demonstrates responsive player movement logic, sophisticated
-                interaction scripting, and AI behavior logic built entirely
-                inside an engine framework.
+            <div class="contact-card">
+              <h4>Start a Conversation</h4>
+              <p>
+                I'm currently available for freelance projects, collaborations,
+                and full-time opportunities. Let's discuss how I can contribute
+                to your next project.
               </p>
-            </div>
-            <div class="pt-4 border-t border-white/5 flex gap-4">
               <a
-                href="https://youtu.be/v27Fh6bPfZI"
-                target="_blank"
-                class="bg-white text-black font-semibold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full hover:bg-zinc-200 transition-all flex items-center gap-2"
+                href="mailto:giannoriega4everything@gmail.com"
+                class="contact-cta"
               >
-                ▶ Watch Trailer
-              </a>
-              <a
-                href="https://drive.google.com/file/d/15JC_hv6VdPnKQiXS-oWbzMapf3-pZMvu/view?usp=sharing"
-                target="_blank"
-                class="bg-white/5 border border-white/10 hover:bg-white/10 text-white font-semibold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full transition-all flex items-center gap-2"
-              >
-                🎮 Play Demo
-              </a>
-            </div>
-          </div>
-
-          <!-- PROJECT 2: RESTAURANT CHATBOT -->
-          <div id="project-bot" class="project-view space-y-6 hidden">
-            <div
-              class="w-full h-48 md:h-64 bg-zinc-950/80 rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative group"
-            >
-              <div
-                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"
-              ></div>
-              <div class="z-20 text-center space-y-3">
-                <span
-                  class="text-[10px] font-bold tracking-[0.2em] uppercase bg-white/10 px-3 py-1 rounded-full text-zinc-300"
-                  >HTML • CSS • JavaScript</span
+                Send an Email
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="16"
+                  height="16"
                 >
-                <h3 class="text-lg font-bold text-white">
-                  Front-End Prototype
-                </h3>
-              </div>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-white">Restaurant Chatbot</h3>
-              <p class="text-zinc-400 text-xs md:text-sm mt-2 leading-relaxed">
-                A food ordering conversational assistant prototype designed with
-                streamlined state logic in vanilla JavaScript. Features dynamic,
-                responsive layout systems for clear visual cues.
-              </p>
-            </div>
-            <div class="pt-4 border-t border-white/5 flex">
-              <a
-                href="restaurant_chatbot.html"
-                target="_blank"
-                class="bg-white text-black font-semibold text-xs tracking-wider uppercase px-6 py-3.5 rounded-full hover:bg-zinc-200 transition-all flex items-center gap-2"
-              >
-                ⚡ View Prototype
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </main>
 
-    <!-- ================= FLOATING DOCK ================= -->
-    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-      <div
-        class="flex items-center gap-1 bg-black/60 border border-white/10 backdrop-blur-md p-1.5 rounded-full shadow-2xl"
-      >
-        <button
-          onclick="switchTab('home')"
-          id="btn-home"
-          class="px-5 py-2.5 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-300 bg-white text-black"
-        >
-          Home
-        </button>
-        <button
-          onclick="switchTab('skills')"
-          id="btn-skills"
-          class="px-5 py-2.5 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-300 text-zinc-400 hover:text-white"
-        >
-          Skills & Journey
-        </button>
-        <button
-          onclick="switchTab('projects')"
-          id="btn-projects"
-          class="px-5 py-2.5 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-300 text-zinc-400 hover:text-white"
-        >
-          Projects
-        </button>
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="site-footer">
+      <div class="page-container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h3>GCN<span>.</span></h3>
+            <p>
+              Creative developer & video editor crafting immersive digital
+              experiences at the intersection of code and cinema.
+            </p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="#about">About</a>
+            <a href="#skills">Arsenal</a>
+            <a href="#works">Works</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Social</h4>
+            <a href="https://github.com/frogrest" target="_blank">GitHub</a>
+            <a
+              href="https://linkedin.com/in/gian-carlo-noriega-02b70139b/"
+              target="_blank"
+              >LinkedIn</a
+            >
+            <a href="mailto:giannoriega4everything@gmail.com">Email</a>
+          </div>
+          <div class="footer-col">
+            <h4>Projects</h4>
+            <a href="https://youtu.be/v27Fh6bPfZI" target="_blank">Prepaview</a>
+            <a href="restaurant_chatbot.html" target="_blank">Restaurant Bot</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Gian Carlo Noriega</p>
+          <p>Built with code & creativity</p>
+        </div>
       </div>
-    </nav>
+    </footer>
 
-    <!-- Background Audio Setup -->
+    <!-- ============================================================
+         AUDIO TOGGLE
+         ============================================================ -->
     <audio id="bg-music" loop>
       <source src="Audio/BG-Music.mp3" type="audio/mpeg" />
     </audio>
 
-    <!-- External JavaScript -->
+    <button
+      id="audio-toggle"
+      class="audio-fab"
+      aria-label="Toggle background music"
+    >
+      <span id="audio-status-dot"></span>
+      <span id="audio-text">Music Off</span>
+    </button>
+
     <script src="JS/script.js"></script>
-
-    <script>
-      // =========================================================================
-      // WATER RIPPLE (BACKGROUND TRAIL)
-      // =========================================================================
-      const canvas = document.getElementById("trail-canvas");
-      const ctx = canvas.getContext("2d");
-      let mouse = { x: undefined, y: undefined };
-      let lastMouse = { x: undefined, y: undefined };
-      let particles = [];
-      let lastRippleTime = 0;
-
-      // Adjust canvas resolution dynamically on window resize
-      function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-      }
-      window.addEventListener("resize", resizeCanvas);
-      resizeCanvas();
-
-      // Ripple Class representing expanding concentric rings on movement
-      class Ripple {
-        constructor(x, y) {
-          this.x = x;
-          this.y = y;
-          this.radius = 2;
-          this.maxRadius = Math.random() * 25 + 20; // Soft varying size limit
-          this.alpha = 0.22; // Low starting opacity to be non-intrusive
-          this.decay = 0.004 + Math.random() * 0.003; // Gentle slow dissolution
-        }
-
-        update() {
-          // Accelerate growth toward max bounds
-          this.radius += (this.maxRadius - this.radius) * 0.1;
-          this.alpha -= this.decay;
-        }
-
-        draw() {
-          if (
-            !isFinite(this.x) ||
-            !isFinite(this.y) ||
-            !isFinite(this.radius) ||
-            this.alpha <= 0
-          )
-            return;
-          ctx.save();
-          ctx.strokeStyle = `rgba(255, 255, 255, ${this.alpha})`;
-          ctx.lineWidth = 1.2;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.restore();
-        }
-      }
-
-      // Track cursor position and instantiate ripples at subtle intervals
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-
-        const now = Date.now();
-        // Slow interval to avoid visual clutter
-        if (now - lastRippleTime > 100) {
-          particles.push(new Ripple(mouse.x, mouse.y));
-          lastRippleTime = now;
-        }
-
-        // Randomly scatter microscopic droplets alongside cursor path
-        if (Math.random() < 0.35) {
-          particles.push(new Droplet(mouse.x, mouse.y));
-        }
-
-        lastMouse.x = mouse.x;
-        lastMouse.y = mouse.y;
-      });
-
-      // Maintain fluid support for responsive screen touch translation
-      window.addEventListener("touchmove", (e) => {
-        if (e.touches.length > 0) {
-          const touch = e.touches[0];
-          mouse.x = touch.clientX;
-          mouse.y = touch.clientY;
-
-          if (Math.random() < 0.2) {
-            particles.push(new Ripple(mouse.x, mouse.y));
-          }
-          if (Math.random() < 0.3) {
-            particles.push(new Droplet(mouse.x, mouse.y));
-          }
-        }
-      });
-
-      // Canvas Render Pipeline
-      function animateTrail() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        for (let i = particles.length - 1; i >= 0; i--) {
-          const p = particles[i];
-          p.update();
-          if (
-            p.alpha <= 0 ||
-            (p.radius && p.radius >= p.maxRadius) ||
-            p.size <= 0
-          ) {
-            particles.splice(i, 1);
-          } else {
-            p.draw();
-          }
-        }
-        requestAnimationFrame(animateTrail);
-      }
-
-      // Start animation sequence
-      animateTrail();
-    </script>
   </body>
 </html>
