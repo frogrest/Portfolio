@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================================================================
   const tabs = document.querySelectorAll(".works-tab");
   const panels = {
+    frogpos: document.getElementById("panel-frogpos"),
     prepaview: document.getElementById("panel-prepaview"),
     chatbot: document.getElementById("panel-chatbot"),
   };

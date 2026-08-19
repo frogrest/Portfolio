@@ -3,6 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gian Carlo Noriega — Creative developer & video editor. Building production software like FrogPOS, a live point-of-sale platform for Filipino stores."
+    />
+    <meta
+      property="og:title"
+      content="Gian Carlo Noriega | Creative Developer & Editor"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack developer & creative technologist — FrogPOS, immersive systems, and cinematic storytelling."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="Images/Cover.jpg" />
     <title>Gian Carlo Noriega | Creative Developer & Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -23,9 +37,9 @@
               fog: "#e3e3e2",
               driftwood: "#dcd7d3",
               graphite: "#666666",
-              aubergine: "#421d24",
-              "aubergine-deep": "#4e242c",
-              iris: "#714cb6",
+              aubergine: "#33224b",
+              "aubergine-deep": "#3f2b59",
+              iris: "#5b4bc8",
               "indigo-glow": "#353088",
               "lavender-chip": "#d4c7ff",
             },
@@ -41,10 +55,9 @@
          ============================================================ -->
     <div class="announcement-banner">
       <p>
-        Welcome — explore my portfolio & creative journey.
-        <a href="https://linkedin.com/in/gian-carlo-noriega-02b70139b/"
-          >Let's connect →</a
-        >
+        Currently building <strong>FrogPOS</strong> — a live point-of-sale
+        platform for Filipino stores.
+        <a href="https://frogrest.com/" target="_blank">Try it live →</a>
       </p>
     </div>
 
@@ -92,14 +105,15 @@
       <div id="hero-panels-container"></div>
 
       <div class="hero-content">
-        <div class="hero-label">Developer & Video Editor</div>
+        <div class="hero-label">Full-Stack Developer & Creative Technologist</div>
         <h1 class="hero-title">
           Crafting <span class="accent">Digital</span><br />
-          <span style="color: var(--color-iris)">Experiences</span>.
+          <span class="gradient-text">Experiences</span>.
         </h1>
         <p class="hero-sub">
-          Bridging the gap between high-end cinematography and scalable software
-          engineering. I build immersive systems with a storyteller's eye.
+          I build production software — from a live point-of-sale platform for
+          Filipino stores to cinematic game prototypes — with a storyteller's
+          eye for detail.
         </p>
         <a href="#works" class="hero-cta">
           Explore My Work
@@ -128,10 +142,13 @@
     <div class="trust-strip">
       <div class="page-container">
         <span class="trust-label">Stack</span>
+        <span class="trust-item">TypeScript</span>
+        <span class="trust-item">React</span>
+        <span class="trust-item">Node.js</span>
+        <span class="trust-item">PostgreSQL</span>
         <span class="trust-item">JavaScript</span>
         <span class="trust-item">Python</span>
         <span class="trust-item">C# / .NET</span>
-        <span class="trust-item">Java</span>
         <span class="trust-item">Unreal Engine</span>
         <span class="trust-item">After Effects</span>
       </div>
@@ -159,13 +176,14 @@
               <p>
                 I am a Computer Science student who refuses to choose between
                 logic and art. My work lives at the intersection of
-                <strong>performance code</strong> and
+                <strong>production software</strong> and
                 <strong>visual storytelling</strong>.
               </p>
               <p>
-                Whether it's architecting a chatbot in JavaScript or grading a
-                cinematic sequence in After Effects, my goal is always the same:
-                <strong>Create a feeling.</strong>
+                From architecting a multi-tenant point-of-sale platform in
+                React and TypeScript to grading cinematic sequences in After
+                Effects, my goal is always the same:
+                <strong>Ship something real — and create a feeling.</strong>
               </p>
             </div>
             <div class="about-image-card">
@@ -195,6 +213,11 @@
             <div class="skill-category">
               <h3>Engineering</h3>
               <div class="skill-tags">
+                <span>TypeScript</span>
+                <span>React</span>
+                <span>Node.js</span>
+                <span>PostgreSQL</span>
+                <span>Tailwind CSS</span>
                 <span>JavaScript</span>
                 <span>Python</span>
                 <span>C#</span>
@@ -264,9 +287,17 @@
           <div class="works-tabs" role="tablist">
             <button
               class="works-tab active"
-              data-tab="prepaview"
+              data-tab="frogpos"
               role="tab"
               aria-selected="true"
+            >
+              FrogPOS
+            </button>
+            <button
+              class="works-tab"
+              data-tab="prepaview"
+              role="tab"
+              aria-selected="false"
             >
               Prepaview
             </button>
@@ -280,8 +311,95 @@
             </button>
           </div>
 
+          <!-- FrogPOS Panel -->
+          <div class="works-panel active" id="panel-frogpos" role="tabpanel">
+            <div class="work-content">
+              <div class="work-tags">
+                React 19 • TypeScript • Node.js • Neon PostgreSQL • Hono
+              </div>
+              <h3>FrogPOS</h3>
+              <p>
+                A production point-of-sale platform for Filipino stores — live
+                at <strong>frogrest.com</strong>. Built with a React + TypeScript
+                frontend, a Hono API, and serverless PostgreSQL, it ships
+                offline-first reliability, QR self-ordering, a kitchen display
+                system, ingredient-based inventory, and customer credit
+                tracking.
+              </p>
+              <ul class="work-features">
+                <li>
+                  Offline-first PWA — sales queue locally and auto-sync when the
+                  signal returns
+                </li>
+                <li>
+                  Multi-tenant SaaS — self-serve signup, subscriptions, and
+                  row-level security per store
+                </li>
+                <li>
+                  QR self-ordering, real-time kitchen display, split billing,
+                  and 80mm thermal receipts
+                </li>
+                <li>Full English / Tagalog localization</li>
+              </ul>
+              <div class="work-links">
+                <a
+                  href="https://frogrest.com"
+                  target="_blank"
+                  class="work-link"
+                >
+                  Marketing Site
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="https://pos.frogrest.com"
+                  target="_blank"
+                  class="work-link"
+                >
+                  Live POS App
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div class="work-preview work-preview-stack">
+              <img
+                src="Images/FrogPOS-Dashboard.png"
+                alt="FrogPOS dashboard preview"
+                loading="lazy"
+              />
+              <img
+                src="Images/FrogPOS-POS.png"
+                alt="FrogPOS POS terminal preview"
+                loading="lazy"
+              />
+              <img
+                src="Images/FrogPOS-Receipt.png"
+                alt="FrogPOS thermal receipt preview"
+                loading="lazy"
+                class="work-preview-thumb"
+              />
+            </div>
+          </div>
+
           <!-- Prepaview Panel -->
-          <div class="works-panel active" id="panel-prepaview" role="tabpanel">
+          <div class="works-panel" id="panel-prepaview" role="tabpanel">
             <div class="work-content">
               <div class="work-tags">Unreal Engine • Blueprints</div>
               <h3>Prepaview</h3>
@@ -290,41 +408,42 @@
                 logic and AI behavior systems. Built entirely in Unreal Engine
                 with custom Blueprints and C++ integrations.
               </p>
-              <a
-                href="https://youtu.be/v27Fh6bPfZI"
-                target="_blank"
-                class="work-link"
-              >
-                Watch Reel
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="14"
-                  height="14"
+              <div class="work-links">
+                <a
+                  href="https://youtu.be/v27Fh6bPfZI"
+                  target="_blank"
+                  class="work-link"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
-              <a
-                href="https://drive.google.com/file/d/15JC_hv6VdPnKQiXS-oWbzMapf3-pZMvu/view"
-                target="_blank"
-                class="work-link"
-                style="margin-left: 1.5rem"
-              >
-                Play Demo
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="14"
-                  height="14"
+                  Watch Reel
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <a
+                  href="https://drive.google.com/file/d/15JC_hv6VdPnKQiXS-oWbzMapf3-pZMvu/view"
+                  target="_blank"
+                  class="work-link"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+                  Play Demo
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
             <div class="work-preview">
               <img
@@ -345,23 +464,25 @@
                 food ordering and UX flow. Built with vanilla JavaScript
                 featuring intelligent conversation states and responsive design.
               </p>
-              <a
-                href="restaurant_chatbot.html"
-                target="_blank"
-                class="work-link"
-              >
-                View Prototype
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="14"
-                  height="14"
+              <div class="work-links">
+                <a
+                  href="restaurant_chatbot.html"
+                  target="_blank"
+                  class="work-link"
                 >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+                  View Prototype
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="14"
+                    height="14"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
             </div>
             <div class="work-preview">
               <img
@@ -509,13 +630,14 @@
           </div>
           <div class="footer-col">
             <h4>Projects</h4>
+            <a href="https://frogrest.com" target="_blank">FrogPOS</a>
             <a href="https://youtu.be/v27Fh6bPfZI" target="_blank">Prepaview</a>
             <a href="restaurant_chatbot.html" target="_blank">Restaurant Bot</a>
           </div>
         </div>
         <div class="footer-bottom">
           <p>&copy; 2026 Gian Carlo Noriega</p>
-          <p>Built with HTML & Tailwind CSS</p>
+          <p>Built with HTML, CSS &amp; a dash of JavaScript</p>
         </div>
       </div>
     </footer>
