@@ -18,11 +18,20 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="Images/Cover.jpg" />
     <title>Gian Carlo Noriega | Creative Developer & Editor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;460;500;540;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <!--
+      Analytics (optional): create a free Cloudflare Web Analytics site to get a
+      beacon token, then uncomment the script below and paste your token.
+      <script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN"}'
+      ></script>
+    -->
     <script>
       tailwind.config = {
         theme: {
@@ -75,6 +84,7 @@
           <a href="#about">About</a>
           <a href="#skills">Arsenal</a>
           <a href="#works">Works</a>
+          <a href="resume.html">Résumé</a>
           <a href="mailto:giannoriega4everything@gmail.com" class="nav-cta"
             >Get in Touch</a
           >
@@ -95,7 +105,7 @@
 
       <div class="hero-gradient-overlay"></div>
 
-      <!-- Spotlights (design.md gradient system) -->
+      <!-- Spotlights (gradient system) -->
       <div class="hero-spotlight-violet"></div>
       <div class="hero-spotlight-pink"></div>
       <div class="hero-spotlight-blue"></div>
@@ -106,6 +116,11 @@
 
       <div class="hero-content">
         <div class="hero-label">Full-Stack Developer & Creative Technologist</div>
+        <div class="hero-availability">
+          <span class="status-dot"></span>
+          Open to software engineering roles &amp; freelance — Philippines ·
+          Remote
+        </div>
         <h1 class="hero-title">
           Crafting <span class="accent">Digital</span><br />
           <span class="gradient-text">Experiences</span>.
@@ -239,28 +254,45 @@
             </div>
           </div>
 
+          <p class="skills-note">
+            <strong>Production:</strong> React, TypeScript, Node.js, PostgreSQL
+            &middot;
+            <strong>Familiar:</strong> Python, C#, Java, .NET, Unreal Engine C++
+          </p>
+
           <!-- Journey Timeline -->
           <div class="journey-section">
             <h3>Journey</h3>
             <div class="timeline">
+              <!-- TODO: adjust date ranges to match your actual history -->
               <div class="timeline-item">
-                <div class="timeline-year">2022-2026</div>
+                <div class="timeline-year">2022 — 2026</div>
                 <div class="timeline-desc">
-                  <strong>Computer Science</strong> — Building foundational
-                  expertise in algorithms, data structures, and full-stack
+                  <strong>Computer Science</strong> — B.S. Computer Science with
+                  coursework across algorithms, data structures, and full-stack
                   development.
                 </div>
               </div>
               <div class="timeline-item">
-                <div class="timeline-year">2022-2026</div>
+                <div class="timeline-year">2022 — Present</div>
                 <div class="timeline-desc">
-                  <strong>Video Editing & VFX</strong> — Producing cinematic
+                  <strong>Video Editing &amp; VFX</strong> — Producing cinematic
                   content using After Effects, Unreal Engine, and Sony Vegas for
                   various projects.
                 </div>
               </div>
               <div class="timeline-item">
-                <div class="timeline-year">2025-2026</div>
+                <div class="timeline-year">2025 — Present</div>
+                <div class="timeline-desc">
+                  <strong>FrogPOS Founder</strong> — Designed, built, and
+                  shipped a multi-tenant point-of-sale platform, live at
+                  <a href="https://frogrest.com" target="_blank"
+                    >frogrest.com</a
+                  >.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-year">2025 — Present</div>
                 <div class="timeline-desc">
                   <strong>DevCon PH</strong> — Active member of the Philippine
                   developer community, contributing to open-source and
@@ -287,32 +319,45 @@
           <div class="works-tabs" role="tablist">
             <button
               class="works-tab active"
+              id="tab-frogpos"
               data-tab="frogpos"
               role="tab"
+              aria-controls="panel-frogpos"
               aria-selected="true"
             >
               FrogPOS
             </button>
             <button
               class="works-tab"
+              id="tab-prepaview"
               data-tab="prepaview"
               role="tab"
+              aria-controls="panel-prepaview"
               aria-selected="false"
+              tabindex="-1"
             >
               Prepaview
             </button>
             <button
               class="works-tab"
+              id="tab-chatbot"
               data-tab="chatbot"
               role="tab"
+              aria-controls="panel-chatbot"
               aria-selected="false"
+              tabindex="-1"
             >
               Restaurant Bot
             </button>
           </div>
 
           <!-- FrogPOS Panel -->
-          <div class="works-panel active" id="panel-frogpos" role="tabpanel">
+          <div
+            class="works-panel active"
+            id="panel-frogpos"
+            role="tabpanel"
+            aria-labelledby="tab-frogpos"
+          >
             <div class="work-content">
               <div class="work-tags">
                 React 19 • TypeScript • Node.js • Neon PostgreSQL • Hono
@@ -325,6 +370,17 @@
                 offline-first reliability, QR self-ordering, a kitchen display
                 system, ingredient-based inventory, and customer credit
                 tracking.
+              </p>
+              <p class="work-problem">
+                <strong>Problem.</strong> A dead signal or a crashing cashier
+                app means lost sales for small restaurants. POS tools need to
+                keep working the moment the internet drops — and be affordable
+                enough for neighborhood stores.
+              </p>
+              <p class="work-approach">
+                <strong>Approach.</strong> A multi-tenant SaaS where every store
+                gets isolated, secure data with the features of an enterprise
+                POS out of the box:
               </p>
               <ul class="work-features">
                 <li>
@@ -341,6 +397,11 @@
                 </li>
                 <li>Full English / Tagalog localization</li>
               </ul>
+              <p class="work-impact">
+                <strong>Impact.</strong> A complete POS product — from database
+                schema to thermal receipts — architected, built, and deployed
+                end-to-end for real Filipino stores.
+              </p>
               <div class="work-links">
                 <a
                   href="https://frogrest.com"
@@ -399,15 +460,38 @@
           </div>
 
           <!-- Prepaview Panel -->
-          <div class="works-panel" id="panel-prepaview" role="tabpanel">
+          <div
+            class="works-panel"
+            id="panel-prepaview"
+            role="tabpanel"
+            aria-labelledby="tab-prepaview"
+          >
             <div class="work-content">
-              <div class="work-tags">Unreal Engine • Blueprints</div>
+              <div class="work-tags">Unreal Engine • Blueprints • C++</div>
               <h3>Prepaview</h3>
               <p>
-                High-fidelity gameplay prototype focusing on responsive player
-                logic and AI behavior systems. Built entirely in Unreal Engine
-                with custom Blueprints and C++ integrations.
+                A high-fidelity gameplay prototype focused on responsive player
+                control and believable AI behavior. Built entirely in Unreal
+                Engine with custom Blueprints and C++ integrations.
               </p>
+              <!-- TODO: verify these details match the current project -->
+              <ul class="work-features">
+                <li>
+                  Responsive player control — tight, feel-first movement tuned
+                  for responsiveness
+                </li>
+                <li>
+                  AI behavior systems — navigation and reaction logic that
+                  keeps encounters believable
+                </li>
+                <li>
+                  Custom Blueprints with C++ integrations for
+                  performance-critical systems
+                </li>
+                <li>
+                  Playable demo available alongside the gameplay reel
+                </li>
+              </ul>
               <div class="work-links">
                 <a
                   href="https://youtu.be/v27Fh6bPfZI"
@@ -445,25 +529,48 @@
                 </a>
               </div>
             </div>
-            <div class="work-preview">
-              <img
-                src="Images/Prepaview.jpg"
-                alt="Prepaview project preview"
+            <div class="work-preview work-preview-embed">
+              <iframe
+                src="https://www.youtube-nocookie.com/embed/v27Fh6bPfZI"
+                title="Prepaview gameplay reel"
                 loading="lazy"
-              />
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
 
           <!-- Chatbot Panel -->
-          <div class="works-panel" id="panel-chatbot" role="tabpanel">
+          <div
+            class="works-panel"
+            id="panel-chatbot"
+            role="tabpanel"
+            aria-labelledby="tab-chatbot"
+          >
             <div class="work-content">
-              <div class="work-tags">Vanilla JS • CSS3 • UX</div>
+              <div class="work-tags">Vanilla JS • CSS3 • Accessibility</div>
               <h3>Restaurant Bot</h3>
               <p>
-                A state-driven conversational interface designed for seamless
-                food ordering and UX flow. Built with vanilla JavaScript
-                featuring intelligent conversation states and responsive design.
+                A state-driven conversational interface for food ordering, built
+                with zero dependencies. A compact state machine moves the
+                conversation from greeting to checkout, and the chat window is
+                wired with <code>aria-live</code> so screen readers announce new
+                messages.
               </p>
+              <ul class="work-features">
+                <li>
+                  State-machine conversation flow — start, shopping, and
+                  checkout states
+                </li>
+                <li>
+                  Input resolution — category aliases, item IDs, and fuzzy name
+                  matching
+                </li>
+                <li>XSS-safe rendering with output escaping</li>
+                <li>
+                  Keyboard-first input with ARIA wiring throughout
+                </li>
+              </ul>
               <div class="work-links">
                 <a
                   href="restaurant_chatbot.html"
@@ -512,6 +619,11 @@
                 Whether you have a project in mind, a collaboration idea, or
                 just want to say hello — I'm always open to meaningful
                 conversations.
+              </p>
+              <p class="contact-availability">
+                <span class="status-dot"></span>
+                Open to software engineering roles, freelance, and
+                collaborations — based in the Philippines, remote-friendly.
               </p>
               <div class="contact-links">
                 <a
@@ -567,6 +679,24 @@
                   </svg>
                   LinkedIn
                 </a>
+                <a href="resume.html" class="contact-link">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    width="18"
+                    height="18"
+                  >
+                    <path
+                      d="M14.5 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V7.5L14.5 2z"
+                    />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="8" y1="13" x2="16" y2="13" />
+                    <line x1="8" y1="17" x2="16" y2="17" />
+                  </svg>
+                  Résumé
+                </a>
               </div>
             </div>
             <div class="contact-card">
@@ -576,22 +706,49 @@
                 and full-time opportunities. Let's discuss how I can contribute
                 to your next project.
               </p>
-              <a
-                href="mailto:giannoriega4everything@gmail.com"
-                class="contact-cta"
-              >
-                Send an Email
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  width="16"
-                  height="16"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+              <form class="contact-form" id="contact-form">
+                <label class="form-label" for="cf-name">Name</label>
+                <input
+                  class="form-input"
+                  id="cf-name"
+                  name="name"
+                  type="text"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                />
+                <label class="form-label" for="cf-email">Email</label>
+                <input
+                  class="form-input"
+                  id="cf-email"
+                  name="email"
+                  type="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                />
+                <label class="form-label" for="cf-message">Message</label>
+                <textarea
+                  class="form-textarea"
+                  id="cf-message"
+                  name="message"
+                  rows="4"
+                  placeholder="Tell me about your project..."
+                  required
+                ></textarea>
+                <button type="submit" class="contact-cta form-submit">
+                  Send an Email
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="16"
+                    height="16"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </form>
             </div>
           </div>
         </div>

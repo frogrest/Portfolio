@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tabs.forEach((t) => {
         t.classList.remove("active");
         t.setAttribute("aria-selected", "false");
+        t.setAttribute("tabindex", "-1");
       });
 
       // Hide all panels
@@ -141,9 +142,39 @@ document.addEventListener("DOMContentLoaded", () => {
       // Activate target
       tab.classList.add("active");
       tab.setAttribute("aria-selected", "true");
+      tab.setAttribute("tabindex", "0");
       if (panels[target]) panels[target].classList.add("active");
     });
   });
+
+  // Keyboard navigation for the tablist (ARIA tabs pattern)
+  const tabList = document.querySelector(".works-tabs");
+  if (tabList) {
+    tabList.addEventListener("keydown", (e) => {
+      const keys = ["ArrowLeft", "ArrowRight", "Home", "End"];
+      if (!keys.includes(e.key)) return;
+      const current = document.activeElement;
+      if (!current || !current.classList.contains("works-tab")) return;
+
+      e.preventDefault();
+      const tabArray = Array.from(tabs);
+      let index = tabArray.indexOf(current);
+
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        index = (index + 1) % tabArray.length;
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        index = (index - 1 + tabArray.length) % tabArray.length;
+      } else if (e.key === "Home") {
+        index = 0;
+      } else if (e.key === "End") {
+        index = tabArray.length - 1;
+      }
+
+      const next = tabArray[index];
+      next.focus();
+      next.click();
+    });
+  }
 
   // =========================================================================
   // AUDIO SYSTEM
@@ -168,6 +199,30 @@ document.addEventListener("DOMContentLoaded", () => {
         audioDot.classList.remove("active");
         audioText.innerText = "Music Off";
       }
+    });
+  }
+
+  // =========================================================================
+  // CONTACT FORM (composes a mailto link)
+  // =========================================================================
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("cf-name").value.trim();
+      const email = document.getElementById("cf-email").value.trim();
+      const message = document.getElementById("cf-message").value.trim();
+      if (!name || !message) return;
+
+      const subject = `Portfolio inquiry from ${name}`;
+      const body =
+        (email ? `Email: ${email}\n\n` : "") +
+        `Message:\n${message}`;
+
+      const href =
+        "mailto:giannoriega4everything@gmail.com" +
+        `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = href;
     });
   }
 

@@ -1,6 +1,6 @@
 /* ============================================================
    Superhuman Design System — Gian Carlo Noriega Portfolio
-   Reference: design.md (Superhuman style tokens)
+   Superhuman-inspired design tokens (colors, type, spacing).
    ============================================================ */
 
 /* ----- CSS Custom Properties ----- */
@@ -400,6 +400,46 @@ a {
   animation: fadeSlideDown 0.8s ease both;
 }
 
+/* Hero availability badge */
+.hero-availability {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--spacing-8) var(--spacing-16);
+  border-radius: var(--radius-full);
+  margin: 0 0 var(--spacing-24);
+  animation: fadeSlideDown 0.8s ease 0.08s both;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
+  flex-shrink: 0;
+}
+
+.contact-availability {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  font-size: var(--text-body-sm) !important;
+  color: var(--color-ink) !important;
+  font-weight: var(--weight-medium);
+}
+
+.contact-availability .status-dot {
+  margin-top: 0.35em;
+}
+
 .hero-title {
   font-size: clamp(2.5rem, 6vw, var(--text-display));
   font-weight: var(--weight-semibold);
@@ -764,6 +804,20 @@ a {
   background: var(--color-fog);
 }
 
+.skills-note {
+  margin-top: var(--spacing-48);
+  padding-top: var(--spacing-20);
+  border-top: 1px solid var(--color-fog);
+  font-size: var(--text-body-sm);
+  color: var(--color-graphite);
+  line-height: 1.6;
+}
+
+.skills-note strong {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+}
+
 /* Journey timeline */
 .journey-section {
   margin-top: var(--spacing-48);
@@ -908,6 +962,53 @@ a {
   color: var(--color-graphite);
   line-height: 1.6;
   margin-bottom: var(--spacing-20);
+}
+
+.work-problem,
+.work-approach,
+.work-impact {
+  font-size: var(--text-body);
+  color: var(--color-graphite);
+  line-height: 1.6;
+}
+
+.work-problem {
+  margin-bottom: var(--spacing-16);
+}
+
+.work-approach {
+  margin-bottom: var(--spacing-12);
+}
+
+.work-impact {
+  margin: 0 0 var(--spacing-28);
+}
+
+.work-problem strong,
+.work-approach strong,
+.work-impact strong {
+  color: var(--color-ink);
+  font-weight: var(--weight-semibold);
+}
+
+.work-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--surface-parchment-canvas);
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: var(--color-iris);
+}
+
+.work-preview-embed {
+  aspect-ratio: 16 / 9;
+}
+
+.work-preview-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
 .work-link {
@@ -1091,6 +1192,69 @@ a {
 
 .contact-card .contact-cta:hover {
   transform: translateY(-2px);
+}
+
+/* Contact form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.contact-form .form-label {
+  font-size: var(--text-caption);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--spacing-8);
+}
+
+.contact-form .form-label:first-child {
+  margin-top: 0;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-12);
+  font-size: var(--text-body);
+  font-family: inherit;
+  color: var(--color-bone);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: rgba(212, 199, 255, 0.6);
+  box-shadow: 0 0 0 4px rgba(212, 199, 255, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.contact-form .form-submit {
+  margin-top: var(--spacing-12);
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.contact-form .form-submit:active {
+  transform: translateY(1px);
 }
 
 @media (max-width: 768px) {
