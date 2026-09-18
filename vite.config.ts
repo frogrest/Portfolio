@@ -5,8 +5,8 @@ import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  // Project site: https://frogrest.github.io/Portfolio/
-  base: process.env.VITE_BASE || (process.env.GITHUB_ACTIONS ? '/Portfolio/' : '/'),
+  // Support both Vercel/local root '/' and GitHub Pages '/Portfolio/'
+  base: process.env.VERCEL ? '/' : (process.env.VITE_BASE || (process.env.GITHUB_ACTIONS ? '/Portfolio/' : '/')),
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
