@@ -110,9 +110,14 @@ The project is governed by the three core dials of the `taste-skill`:
 ```text
 Portfolio/
 ├── .agents/                    # Custom agent skills & workflows (taste-skill, brandkit, etc.)
-├── public/                     # Static assets, fonts, icons & verified ResumeLatest.pdf
+├── .github/workflows/          # Automated GitHub Actions CI/CD workflows
+│   └── deploy.yml              # GitHub Pages deployment automation
+├── public/                     # Static public assets (Vite workflow)
+│   ├── 404.html                # SPA fallback redirect for GitHub Pages
 │   ├── favicon.svg             # Modern minimalist SVG monogram icon
-│   └── ResumeLatest.pdf        # Verified resume document
+│   ├── icons.svg               # SVG sprite definitions
+│   ├── Images/                 # Screenshots & visual project media
+│   └── ResumeLatest.pdf        # Verified downloadable resume document
 ├── src/
 │   ├── assets/                 # Optimized static media, cover graphics, and screenshots
 │   ├── components/             # Reusable UI & interactive widgets
@@ -142,6 +147,7 @@ Portfolio/
 ├── package.json                # Project dependencies & build scripts
 ├── playwright.config.ts        # Playwright multi-device test runner config
 ├── tsconfig.json               # Strict TypeScript configuration
+├── vercel.json                 # Vercel deployment, SPA rewrites & security headers
 └── vite.config.ts              # Vite 8 build & bundle setup
 ```
 
