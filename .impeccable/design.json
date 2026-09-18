@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-19T02:33:00Z",
+  "title": "Design System: Gian Carlo Noriega Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Cinematic Amber",
+        "canonical": "#f59e0b",
+        "tonalRamp": ["#451a03", "#78350f", "#92400e", "#b45309", "#d97706", "#f59e0b", "#fbbf24", "#fef3c7"]
+      },
+      "canvas": {
+        "role": "neutral-dark",
+        "displayName": "Obsidian Ground",
+        "canonical": "#090a0f",
+        "tonalRamp": ["#040407", "#090a0f", "#12131a", "#1a1c24", "#242631", "#333644", "#52566b", "#7b8098"]
+      },
+      "status-emerald": {
+        "role": "status",
+        "displayName": "Operational Emerald",
+        "canonical": "#10b981",
+        "tonalRamp": ["#022c22", "#064e3b", "#065f46", "#047857", "#059669", "#10b981", "#34d399", "#a7f3d0"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Hero", "purpose": "Hero greetings and major personal branding only." },
+      "headline": { "displayName": "Section Headline", "purpose": "Main section titles and categorical breaks." },
+      "title": { "displayName": "Card Title", "purpose": "Project and milestone headings." },
+      "body": { "displayName": "Body Prose", "purpose": "Descriptive paragraphs and summaries." },
+      "label": { "displayName": "Engineered Label", "purpose": "Tracked uppercase metadata, category kickers, and code tags." }
+    },
+    "shadows": [
+      { "name": "ambient-amber", "value": "0 10px 25px -5px rgba(245, 158, 11, 0.25)", "purpose": "High-impact focus glow under primary CTA buttons." },
+      { "name": "card-rest", "value": "0 1px 3px rgba(0, 0, 0, 0.3)", "purpose": "Subtle grounding beneath glassmorphic cards." }
+    ],
+    "motion": [
+      { "name": "ease-physics", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Spring-calibrated curve for interactive hovers and state changes." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Tactile amber button for high-priority visitor conversion.",
+      "html": "<button class=\"ds-btn-primary\">View Selected Work</button>",
+      "css": ".ds-btn-primary { background: #f59e0b; color: #000; font-family: Inter, sans-serif; font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 12px; border: none; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 20px -5px rgba(245, 158, 11, 0.25); cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background: #d97706; transform: translateY(-2px); box-shadow: 0 12px 24px -5px rgba(245, 158, 11, 0.35); }"
+    },
+    {
+      "name": "Secondary Ghost Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Translucent glass button for secondary navigation actions.",
+      "html": "<button class=\"ds-btn-ghost\">Get in Touch</button>",
+      "css": ".ds-btn-ghost { background: rgba(255, 255, 255, 0.05); color: #e4e4e7; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1); min-height: 44px; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-ghost:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(245, 158, 11, 0.3); transform: translateY(-2px); }"
+    },
+    {
+      "name": "Tactile Action Pill",
+      "kind": "button",
+      "refersTo": "button-action-pill",
+      "description": "Pill action button exceeding 44px touch target for project demo links.",
+      "html": "<a class=\"ds-action-pill\" href=\"#\"><span>Live Demo</span> <span style=\"font-size:10px;\">↗</span></a>",
+      "css": ".ds-action-pill { background: rgba(255, 255, 255, 0.05); color: #f4f4f5; font-family: Inter, sans-serif; font-size: 12px; font-weight: 500; padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.08); min-height: 44px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; cursor: pointer; transition: all 0.2s; } .ds-action-pill:hover { background: rgba(255, 255, 255, 0.1); color: #fcd34d; border-color: rgba(245, 158, 11, 0.3); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Director's Grading Suite",
+    "overview": "The interface embodies the refined precision of a high-end post-production mastering suite combined with the technical rigor of modern software engineering. It eschews generic developer portfolio templates and AI gradient clichés in favor of deep obsidian depth, disciplined typographic hierarchy, and warm amber illumination reminiscent of studio monitors and color-grading hardware.",
+    "keyCharacteristics": [
+      "Obsidian Ground (#090a0f) allowing media artifacts to lead with high contrast",
+      "Cinematic Amber Accent (#f59e0b) strictly reserved for interactive moments",
+      "Glassmorphic Precision with 1px translucent borders and backdrop blur",
+      "Strict Accessibility Floor exceeding 44x44px touch targets on all viewports"
+    ],
+    "rules": [
+      { "name": "The Five-Percent Accent Rule", "body": "Cinematic amber is used on ≤5% of any viewport. Its scarcity is what gives it authority and urgency.", "section": "colors" },
+      { "name": "The Solid Type Rule", "body": "Text never uses gradient fills or clipping masks. Typography is always rendered in solid, uncompromised contrast.", "section": "colors" },
+      { "name": "The Whole-Word Integrity Rule", "body": "Animated headings must split by words first, ensuring personal names and brand terms never wrap mid-character across screen sizes.", "section": "typography" },
+      { "name": "The Ambient Light Rule", "body": "Diffuse ambient colored light glows are locked behind -z-10 with low opacity (<0.05) to protect readability.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do maintain a minimum 44x44px bounding box on all interactive controls.",
+      "Do reserve the amber accent for primary moments of interaction and key achievements.",
+      "Do provide immediate tactile feedback on all buttons.",
+      "Do respect prefers-reduced-motion across all custom animations."
+    ],
+    "donts": [
+      "Don't use decorative gradient text or purple/cyan AI glow tells.",
+      "Don't use low-contrast text (e.g., dark gray on black).",
+      "Don't trap users in modals or mobile drawers without clear dismiss mechanisms.",
+      "Don't break names or technical titles across individual letters."
+    ]
+  }
+}
