@@ -101,12 +101,6 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             </div>
-
-            {/* Online Indicator Badge */}
-            <div className="absolute -bottom-2 -right-2 px-2.5 py-1 rounded-full bg-[#090a0f] border border-amber-500/40 flex items-center gap-1.5 shadow-md">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-mono text-[10px] text-neutral-300 font-semibold uppercase">Available</span>
-            </div>
           </div>
 
           {/* Main Info */}
