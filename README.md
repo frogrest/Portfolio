@@ -3,6 +3,7 @@
 [![React 19](https://img.shields.io/badge/React-19.2.8-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-646CFF?style=flat&logo=vite&logoColor=white)](https://vite.dev)
+[![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.3-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Motion](https://img.shields.io/badge/Motion-13.4-F59E0B?style=flat&logo=framer&logoColor=black)](https://motion.dev)
 [![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?style=flat&logo=greensock&logoColor=black)](https://gsap.com)
@@ -11,8 +12,8 @@
 [![Impeccable Audit](https://img.shields.io/badge/Impeccable_Audit-20%2F20_Flawless-10B981?style=flat)](./tests/impeccable-audit.spec.ts)
 [![UX Heuristics](https://img.shields.io/badge/UX_Critique-31%2F32_(96.8%25)-10B981?style=flat)](./.impeccable/critique/2026-09-17T20-24-38Z__src.md)
 
-> **Live Deployment**: [https://frogrest.github.io/Portfolio/](https://frogrest.github.io/Portfolio/)  
-> **GitHub Profile**: [https://github.com/frogrest](https://github.com/frogrest)  
+> **GitHub Pages**: [https://frogrest.github.io/Portfolio/](https://frogrest.github.io/Portfolio/)  
+> **GitHub Repository**: [https://github.com/frogrest/Portfolio](https://github.com/frogrest/Portfolio)  
 > **Design Specification**: [DESIGN.md](./DESIGN.md) | **Product Definition**: [PRODUCT.md](./PRODUCT.md)
 
 ---
