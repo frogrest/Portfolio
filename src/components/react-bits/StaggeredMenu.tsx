@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
-import { useScrollDirection } from "../../hooks/useScrollDirection";
 
 export interface NavItem {
   label: string;
@@ -24,7 +23,6 @@ export const StaggeredMenu: React.FC<{ items?: NavItem[]; className?: string }> 
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const prefersReduced = useReducedMotion();
-  const { hidden } = useScrollDirection();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,64 +76,57 @@ export const StaggeredMenu: React.FC<{ items?: NavItem[]; className?: string }> 
   return (
     <header className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none ${className}`}>
       {/* Desktop Navigation Floating Pill */}
-      <motion.div
-        className="hidden md:flex justify-center will-change-transform"
-        initial={false}
-        animate={{ y: prefersReduced ? 0 : hidden ? -196 : 0 }}
-        transition={{ type: "spring", stiffness: 380, damping: 38, mass: 0.9 }}
+      <motion.nav
+        aria-label="Main Navigation"
+        initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -28, filter: "blur(14px)" }}
+        animate={prefersReduced ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
+        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+        className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-[#090a0f]/80 backdrop-blur-xl border border-white/10 shadow-2xl pointer-events-auto transition-colors hover:border-amber-500/30"
       >
-        <motion.nav
-          aria-label="Main Navigation"
-          initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -28, filter: "blur(14px)" }}
-          animate={prefersReduced ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="flex items-center gap-1 p-1.5 rounded-full bg-[#090a0f]/80 backdrop-blur-xl border border-white/10 shadow-2xl pointer-events-auto transition-colors hover:border-amber-500/30"
+        <a
+          href="#hero"
+          onClick={(e) => handleNavClick(e, "#hero")}
+          className="px-4 py-2 text-sm font-bold tracking-tight text-white flex items-center gap-1.5 rounded-full hover:text-amber-400 transition-[color,transform] active:scale-95 min-h-[44px]"
         >
-          <a
-            href="#hero"
-            onClick={(e) => handleNavClick(e, "#hero")}
-            className="px-4 py-2 text-sm font-bold tracking-tight text-white flex items-center gap-1.5 rounded-full hover:text-amber-400 transition-[color,transform] active:scale-95 min-h-[44px]"
-          >
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span>GN</span>
-          </a>
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          <span>GN</span>
+        </a>
 
-          <div className="h-4 w-[1px] bg-white/10 mx-1" />
+        <div className="h-4 w-[1px] bg-white/10 mx-1" />
 
-          {items.map((item) => {
-            const id = item.href.replace("#", "");
-            const isActive = activeSection === id;
+        {items.map((item) => {
+          const id = item.href.replace("#", "");
+          const isActive = activeSection === id;
 
-            return (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative px-4 py-2 text-xs font-medium rounded-full transition-[color,background-color,transform] active:scale-95 min-h-[44px] flex items-center justify-center ${
-                  isActive ? "text-amber-300" : "text-neutral-400 hover:text-white"
-                }`}
-              >
-                {isActive && (
-                  <motion.span
-                    layoutId="active-pill"
-                    className="absolute inset-0 rounded-full bg-white/[0.08] border border-amber-500/30 -z-10"
-                    transition={{ type: "spring", stiffness: 500, damping: 40, mass: 0.8 }}
-                  />
-                )}
-                {item.label}
-              </a>
-            );
-          })}
+          return (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={`relative px-4 py-2 text-xs font-medium rounded-full transition-[color,background-color,transform] active:scale-95 min-h-[44px] flex items-center justify-center ${
+                isActive ? "text-amber-300" : "text-neutral-400 hover:text-white"
+              }`}
+            >
+              {isActive && (
+                <motion.span
+                  layoutId="active-pill"
+                  className="absolute inset-0 rounded-full bg-white/[0.08] border border-amber-500/30 -z-10"
+                  transition={{ type: "spring", stiffness: 500, damping: 40, mass: 0.8 }}
+                />
+              )}
+              {item.label}
+            </a>
+          );
+        })}
 
-          <a
-            href="mailto:giannoriega4everything@gmail.com"
-            className="group ml-2 px-3.5 py-2 text-xs font-semibold rounded-full bg-amber-500 text-black hover:bg-amber-400 transition-[background-color,transform] active:scale-95 font-mono flex items-center gap-1 min-h-[44px]"
-          >
-            <span>Hire Me</span>
-            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        </motion.nav>
-      </motion.div>
+        <a
+          href="mailto:giannoriega4everything@gmail.com"
+          className="group ml-2 px-3.5 py-2 text-xs font-semibold rounded-full bg-amber-500 text-black hover:bg-amber-400 transition-[background-color,transform] active:scale-95 font-mono flex items-center gap-1 min-h-[44px]"
+        >
+          <span>Hire Me</span>
+          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </a>
+      </motion.nav>
 
       {/* Mobile Top Bar with Staggered Menu Trigger */}
       <motion.div
