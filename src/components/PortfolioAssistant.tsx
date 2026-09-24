@@ -121,10 +121,10 @@ export const PortfolioAssistant: React.FC = () => {
 
     if (q.includes("contact") || q.includes("email") || q.includes("hire") || q.includes("reach")) {
       return {
-        text: "Gian is available for full-stack engineering roles and freelance software projects. You can email him directly at noriegagian01@gmail.com or connect via LinkedIn.",
+        text: "Gian is available for full-stack engineering roles and freelance software projects. You can email him directly at giannoriega4everything@gmail.com or connect via LinkedIn.",
         action: {
           label: "Send Gian an Email",
-          href: "mailto:noriegagian01@gmail.com",
+          href: "mailto:giannoriega4everything@gmail.com",
         },
       };
     }

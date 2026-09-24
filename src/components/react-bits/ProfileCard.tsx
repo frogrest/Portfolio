@@ -30,7 +30,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ({
   socials = {
     github: "https://github.com/giannoriega",
     linkedin: "https://www.linkedin.com/in/gian-carlo-noriega-250877239/",
-    email: "noriegagian01@gmail.com",
+    email: "giannoriega4everything@gmail.com",
   },
   highlights = [
     { label: "Focus", value: "Full-Stack & Systems" },

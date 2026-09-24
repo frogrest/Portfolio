@@ -44,7 +44,7 @@ Evaluated in fast 30-to-60-second recruiter scans on mobile and desktop browsers
   - *Restaurant Bot Prototype*: Deterministic conversational ordering prototype with state machines and accessible conversational UI.
   - *Portfolio Assistant Chatbot*: Real-time conversational portfolio assistant with instant project queries and resume dispatch.
 - **Community & Leadership**: Active member of DevCon Philippines developer community.
-- **Direct Contacts**: `noriegagian01@gmail.com` / `giannoriega4everything@gmail.com`, `09937893097`, Remote-Ready (Philippines, GMT+8).
+- **Direct Contacts**: `giannoriega4everything@gmail.com`, `09937893097`, Remote-Ready (Philippines, GMT+8).
 
 ## Product Principles
 
