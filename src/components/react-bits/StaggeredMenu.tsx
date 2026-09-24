@@ -75,62 +75,66 @@ export const StaggeredMenu: React.FC<{ items?: NavItem[]; className?: string }> 
 
   return (
     <header className={`fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none ${className}`}>
-      {/* Desktop Navigation Floating Pill */}
-      <motion.nav
-        aria-label="Main Navigation"
-        initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -28, filter: "blur(14px)" }}
-        animate={prefersReduced ? { opacity: 1 } : { opacity: 1, y: 0, filter: "blur(0px)" }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-        className="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-[#090a0f]/80 backdrop-blur-xl border border-white/10 shadow-2xl pointer-events-auto transition-colors hover:border-amber-500/30"
-      >
-        <a
-          href="#hero"
-          onClick={(e) => handleNavClick(e, "#hero")}
-          className="px-4 py-2 text-sm font-bold tracking-tight text-white flex items-center gap-1.5 rounded-full hover:text-amber-400 transition-[color,transform] active:scale-95 min-h-[44px]"
+      {/* Desktop Left Rail Navigation */}
+      <div className="hidden xl:flex fixed left-4 top-1/2 -translate-y-1/2 z-50 pointer-events-auto">
+        <motion.nav
+          aria-label="Main Navigation"
+          initial={prefersReduced ? { opacity: 0 } : { opacity: 0, x: -24, filter: "blur(12px)" }}
+          animate={prefersReduced ? { opacity: 1 } : { opacity: 1, x: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          className="w-44 flex flex-col gap-1 p-3 rounded-2xl bg-[#090a0f]/80 backdrop-blur-xl border border-white/10 shadow-2xl transition-colors hover:border-amber-500/30"
         >
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span>GN</span>
-        </a>
+          <a
+            href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
+            className="flex items-center gap-2 px-2 py-2 rounded-lg text-white hover:text-amber-400 transition-[color,transform] active:scale-95 min-h-[44px]"
+          >
+            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+            <span className="font-bold text-sm tracking-tight">Gian Carlo</span>
+          </a>
 
-        <div className="h-4 w-[1px] bg-white/10 mx-1" />
+          <div className="h-[1px] bg-white/10 my-1.5" />
 
-        {items.map((item) => {
-          const id = item.href.replace("#", "");
-          const isActive = activeSection === id;
+          {items.map((item) => {
+            const id = item.href.replace("#", "");
+            const isActive = activeSection === id;
 
-          return (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className={`relative px-4 py-2 text-xs font-medium rounded-full transition-[color,background-color,transform] active:scale-95 min-h-[44px] flex items-center justify-center ${
-                isActive ? "text-amber-300" : "text-neutral-400 hover:text-white"
-              }`}
-            >
-              {isActive && (
-                <motion.span
-                  layoutId="active-pill"
-                  className="absolute inset-0 rounded-full bg-white/[0.08] border border-amber-500/30 -z-10"
-                  transition={{ type: "spring", stiffness: 500, damping: 40, mass: 0.8 }}
-                />
-              )}
-              {item.label}
-            </a>
-          );
-        })}
+            return (
+              <a
+                key={item.label}
+                href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className={`relative pl-4 pr-3 py-2.5 text-xs font-medium rounded-lg flex items-center transition-[color,background-color,transform] active:scale-[0.98] min-h-[44px] ${
+                  isActive ? "text-amber-300" : "text-neutral-400 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="active-rail"
+                    className="absolute left-0 top-0 bottom-0 my-2 w-[3px] rounded-full bg-amber-400 shadow-[0_0_12px_rgba(245,158,11,0.6)]"
+                    transition={{ type: "spring", stiffness: 500, damping: 40, mass: 0.8 }}
+                  />
+                )}
+                {item.label}
+              </a>
+            );
+          })}
 
-        <a
-          href="mailto:giannoriega4everything@gmail.com"
-          className="group ml-2 px-3.5 py-2 text-xs font-semibold rounded-full bg-amber-500 text-black hover:bg-amber-400 transition-[background-color,transform] active:scale-95 font-mono flex items-center gap-1 min-h-[44px]"
-        >
-          <span>Hire Me</span>
-          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
-      </motion.nav>
+          <div className="h-[1px] bg-white/10 my-2" />
 
-      {/* Mobile Top Bar with Staggered Menu Trigger */}
+          <a
+            href="mailto:giannoriega4everything@gmail.com"
+            className="group w-full py-2.5 px-3 rounded-xl bg-amber-500 text-black hover:bg-amber-400 text-xs font-semibold font-mono flex items-center justify-center gap-1 transition-[background-color,transform] active:scale-95 min-h-[44px]"
+          >
+            <span>Hire Me</span>
+            <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        </motion.nav>
+      </div>
+
+      {/* Mobile / Tablet Top Bar with Staggered Menu Trigger */}
       <motion.div
-        className="md:hidden w-full flex items-center justify-between pointer-events-auto"
+        className="xl:hidden w-full flex items-center justify-between pointer-events-auto"
         initial={prefersReduced ? { opacity: 0 } : { opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
@@ -160,7 +164,7 @@ export const StaggeredMenu: React.FC<{ items?: NavItem[]; className?: string }> 
         </button>
       </motion.div>
 
-      {/* Mobile Drawer with Staggered Entrance & Exit Animations */}
+      {/* Mobile / Tablet Drawer with Staggered Entrance & Exit Animations */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -173,7 +177,7 @@ export const StaggeredMenu: React.FC<{ items?: NavItem[]; className?: string }> 
             }
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
             style={{ transformOrigin: "top" }}
-            className="md:hidden fixed inset-x-4 top-20 p-6 rounded-2xl bg-[#090a0f]/95 backdrop-blur-2xl border border-amber-500/20 shadow-2xl pointer-events-auto flex flex-col gap-2 z-50"
+            className="xl:hidden fixed inset-x-4 top-20 p-6 rounded-2xl bg-[#090a0f]/95 backdrop-blur-2xl border border-amber-500/20 shadow-2xl pointer-events-auto flex flex-col gap-2 z-50"
           >
             <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-2">
               <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest">Navigation</span>

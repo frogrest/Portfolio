@@ -21,27 +21,29 @@ export const App: React.FC = () => {
         <DotField />
 
         {/* Structured Sections Container with Consistent Spacing & Rhythm */}
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-28 sm:space-y-36 relative z-10 pt-16 sm:pt-24">
-          {/* 4. Profile / About Section with ProfileCard */}
-          <About />
+        <div className="xl:pl-44">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-28 sm:space-y-36 relative z-10 pt-16 sm:pt-24">
+            {/* 4. Profile / About Section with ProfileCard */}
+            <About />
 
-          {/* 5. Skills Section with FolderFloat */}
-          <Skills />
+            {/* 5. Skills Section with FolderFloat */}
+            <Skills />
 
-          {/* 6. Projects Section with AccordionGallery */}
-          <Projects />
+            {/* 6. Projects Section with AccordionGallery */}
+            <Projects />
 
-          {/* 6. Hobbies / Personal Work with AccordionGallery */}
-          <Gallery />
+            {/* 6. Hobbies / Personal Work with AccordionGallery */}
+            <Gallery />
 
-          {/* Experience & Journey */}
-          <Experience />
+            {/* Experience & Journey */}
+            <Experience />
 
-          {/* Education */}
-          <Education />
+            {/* Education */}
+            <Education />
 
-          {/* Contact Form & Channels */}
-          <Contact />
+            {/* Contact Form & Channels */}
+            <Contact />
+          </div>
         </div>
       </div>
     </MainLayout>
